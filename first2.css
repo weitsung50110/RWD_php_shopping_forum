@@ -1,0 +1,812 @@
+/*網站背景,自己寫的*/
+#bg{	
+	background-image:url(images/bubble.gif);
+	background-attachment: fixed;
+	background-repeat: repeat;
+	
+} 
+ 
+/*輪播不是自己寫的*/
+#container {
+    position: relative;
+    width: 1080px;
+    height: 500px;
+    border: 1px #fff solid;
+    overflow: hidden;
+}
+
+#list {
+    position: absolute;
+    z-index: 1;
+    width: 9000px;
+    height: 500px;
+	transition: 1s;/* 過渡0.5秒 */ 
+}
+
+#list img {
+    float: left;
+    width: 1080px;
+    height: 500px;
+}
+
+#buttons {
+    position: absolute;
+    left: 480px;
+    bottom: 20px;
+    z-index: 2;
+    height: 10px;
+    width: 100px;
+}
+
+#buttons span {
+    float: left;
+    margin-right: 5px;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    background: #333;
+    cursor: pointer;
+}
+
+#buttons .on {
+    background: orangered;
+}
+
+.arrow {
+    position: absolute;
+    top: 220px;
+    z-index: 2;
+    display: none;
+    width: 40px;
+    height: 40px;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 39px;
+    text-align: center;
+    color: #fff;
+    background-color: RGBA(0, 0, 0, .3);
+    cursor: pointer;
+}
+
+.arrow:hover {
+    background-color: RGBA(0, 0, 0, .7);
+}
+
+#container:hover .arrow {
+    display: block;
+}
+
+#prev {
+    left: 20px;
+}
+
+#next {
+    right: 20px;
+}
+			
+
+
+
+ 
+/*卷軸,有查網路,是自己改寫的~*/   
+  
+/* 整個捲軸 */
+::-webkit-scrollbar { width: 15px; }
+/* 捲軸的軌道 */
+::-webkit-scrollbar-track 
+{ 
+  background: #FFD2D2	;
+  -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
+}
+/*捲軸尚未滑到的軌道*/
+::-webkit-scrollbar-track-piece{ background: #fff	; }
+/* 滑動的區塊 */
+::-webkit-scrollbar-thumb 
+{ 
+	border-radius: 10px;
+  background: #FF5151;
+  -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
+}
+/* 滑鼠移到滑動的區塊上 */
+::-webkit-scrollbar-thumb:hover { background: #CE0000	; }
+
+::-webkit-scrollbar-button:vertical:decrement{ 
+  height:20px;
+background-image: url(images/up.jpg);
+background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  height:20px;
+background-image: url(images/down.jpg) ;
+background-repeat: no-repeat;
+}
+
+
+
+
+/*右邊的飄浮選單,有查網路,自己寫的*/
+
+#cart{
+	height:300px;
+    position: fixed;  /*固定在網頁上不隨卷軸移動，若要隨卷軸移動用absolute*/
+    right: -990px;  /*設置水平位置，依所放的內容多寡需要自行手動調整*/
+    background: #FFD2D2;  /*背景顏色*/    
+    border-radius: 10px;  /*圓角*/
+	z-index: 999; /*顯示在最前面,不會被蓋過去*/
+}
+
+#cart{
+	transition: 0.5s;/* 過渡0.5秒 */ 
+}
+
+#cart:hover{  /*當滑鼠移至此區塊時，伸縮區塊*/
+    right: -940px;
+	background: #ffbdbd;  /*背景顏色*/ 
+}
+
+
+
+
+#MyBlog{
+	height:210px;
+    position: fixed;  /*固定在網頁上不隨卷軸移動，若要隨卷軸移動用absolute*/
+    top: 350px;  /*設置垂直位置*/
+    right: -1030px;  /*設置水平位置，依所放的內容多寡需要自行手動調整*/
+    background: #FFD2D2;  /*背景顏色*/
+    padding: 10px 20px;
+    border-radius: 10px;  /*圓角*/
+	z-index: 999; /*顯示在最前面,不會被蓋過去*/
+   
+}
+
+#MyBlog{
+	transition: 0.5s;/* 過渡0.5秒 */ 
+}
+
+#MyBlog:hover{  /*當滑鼠移至此區塊時，伸縮區塊*/
+    right: -990px;
+	background: #ffbdbd;  /*背景顏色*/ 
+}
+
+
+
+/*gotop 查網路,除了javasctipt不是我寫的,其他是自己改寫的,右下角的按鈕負責讓網頁回到最上面*/
+#gotop {
+    position:fixed;
+    z-index:90;
+    right:30px;
+    bottom:30px;
+    display:none;
+    width:60px;
+    font-size: 30px;
+    height:60px;
+    color:#000000;
+    background:#FFB5B5    ;
+    line-height:60px;
+    border-radius:50%;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+#gotop :hover{
+        width:60px;
+        font-size: 30px;
+        height:60px;
+        border-radius:50%;
+        background:#FF9797     ;
+}
+
+/* 商品展覽,查網路後,自己改寫的,參考自:W3CSCHOOL*/
+div.gallery {
+  margin: 0px 8px 20px 0px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+  height: 250PX;
+  z-index:10;
+  position : relative;
+  text-align: center;
+}
+
+div.gallery:hover {
+  border: 1.5px solid #c33;
+}
+
+div.gallery img {
+  width: 100%;
+  height: 180PX;
+}
+
+
+/*字體,自己寫的*/
+.shop_font {
+	font-family:Microsoft JhengHei; 
+	padding: 1px;	
+	font-size: 20px; /* 改字體大小 */ 
+}
+
+
+.font1{
+	font-family:Microsoft JhengHei; 
+	font-size: 20px;
+}
+/*旁邊浮動選單的字*/
+.font1 a{
+	text-decoration:none; /*去除底線*/
+	color:black;
+}
+.font1 a:hover{
+	text-decoration:underline;
+	color:#AE0000;
+}
+
+.font2{
+	font-family:Microsoft JhengHei; 
+	text-align: center;
+	font-size: 18px;
+}
+
+.small{
+	font-family:Microsoft JhengHei; 
+	text-align: center;
+	font-size: 15px;
+}
+
+.small_blue{
+	font-family:Microsoft JhengHei; 
+	text-align: center;
+	color:blue;
+	font-size: 16px;
+}
+
+.blue{
+	font-family:Microsoft JhengHei; 
+	text-align: center;
+	font-size: 20px;
+	color:blue;
+}
+
+.bold_deep_red{
+	font-family:Microsoft JhengHei; 
+	text-align: center;
+	font-size: 20px;
+	font-weight:bold;
+	color:#750000;
+}
+
+.bold_black {
+	text-decoration:none;
+	font-family:Microsoft JhengHei; 
+	text-align: center;
+	font-size: 20px;
+	font-weight:bold;
+	color:black;
+}
+
+.bold_black a{
+	text-decoration:none;
+	font-family:Microsoft JhengHei; 
+	text-align: center;
+	font-size: 20px;
+	font-weight:bold;
+	color:black;
+}
+
+.bold_black a:hover{	
+	color:#2F0000;
+}
+
+.red{
+	font-family:Microsoft JhengHei; 
+	text-align: center;
+	font-size: 23px;
+	color:red;
+}
+
+#h1{
+	font-size:30px;
+	color:brown;
+	font-weight: bold;
+	text-align: center;
+	font-family:微軟正黑體;
+	margin-top:40px;
+	margin-bottom:20px;
+}
+
+
+/* 適用於電腦螢幕*/
+    @media screen{
+		
+		/* 按鈕 */ 
+		.bt{ 
+			font-family:Microsoft JhengHei; 
+			border: none; /* 去掉邊框 */ 
+			background: #c33; /* 改背景色 */ 
+			color: white; /* 字改成白色 */ 
+			font-size: 20px; /* 改字體大小 */ 
+			padding: 9.5px; /* 按鈕內邊距離 */ 
+			width: 110px; /* 按鈕寬度 */ 
+			border-radius: 5px; /* 圓角5px */ 
+			margin-right: 10px;
+		} 
+		
+		.bt:hover { 
+			background: #AA0000; /* 改背景色 */ 
+		} 
+
+		.bt span{ 
+			transition: 0.5s; /* 過渡0.5秒 */ 
+		} 
+
+		.bt:hover span{ 
+			padding-right: 10px; /* 當滑鼠在按鈕上時span內側離右邊距離15px */ 
+		} 
+		
+		.bt span:before{ 
+			content: "»"; /* span前面追加內容為» */ 
+			opacity: 0; /* 透明度為0 */ 
+			transition: 0.5s; /* 加個0.5秒的過渡 */ 
+		}
+		
+		.bt:hover span:before{ 
+			opacity: 1; /* 透明度為1，就是顯示 */ 
+		}
+		
+		.bt span:after{ 
+			content: "«"; /* span後面追加內容為» */ 
+			opacity: 0; /* 透明度為0 */ 
+			transition: 0.5s; /* 加個0.5秒的過渡 */ 
+		}
+		
+		.bt:hover span:after{ 
+			opacity: 1; /* 透明度為1，就是顯示 */ 
+		}
+		
+		.bt span a{ 
+			color:white;  /* 超連結顏色 */ 
+			text-decoration:none; /* 去除底線 */ 
+		} 
+		
+		.bt2{ 
+			font-family:Microsoft JhengHei; 
+			border: none; /* 去掉邊框 */ 
+			background: #930000; /* 改背景色 */ 
+			color: #FFD2D2; /* 字改成白色 */ 
+			font-size: 19px; /* 改字體大小 */ 
+			padding: 9.5px; /* 按鈕內邊距離 */ 
+			width: 70px; /* 按鈕寬度 */ 
+			border-radius: 180px; /* 圓角5px */ 
+			margin-right: 10px;
+		} 
+
+		.bt2:hover { 
+			font-size: 19px; /* 改字體大小 */ 
+			background: #4D0000; /* 改背景色 */ 
+		} 		
+
+		.bt2 span a{ 
+			color:#FFD2D2;  /* 超連結顏色 */ 
+			text-decoration:none; /* 去除底線 */ 
+		} 
+		
+		.bt3{ 
+			font-family:Microsoft JhengHei; 
+			border: none; /* 去掉邊框 */ 
+			background: #930000; /* 改背景色 */ 
+			color: #FFD2D2; /* 字改成白色 */ 
+			font-size: 16px; /* 改字體大小 */ 
+			width: 50px; /* 按鈕寬度 */ 
+			border-radius: 180px; /* 圓角5px */ 
+			margin-right: 10px;
+			
+		} 
+
+		.bt3:hover { 
+			font-size: 18px; /* 改字體大小 */ 
+			background: #4D0000; /* 改背景色 */ 
+		} 		
+
+		
+        div{
+            width:1080px;
+            height:560px;
+            margin:auto;
+        }
+        header{
+            width: 895px;
+            height: 400px;
+			text-align:  center;
+            /*background-image: url(images/header2.jpg);*/
+        }
+        nav{
+			margin: 19px 0px 10px 0px;
+            width: 1080px;
+            height: 55px;
+            /*background-image: url(images/nav.gif);*/			
+        }
+        nav img{
+			width: 100px;
+            height: 50px;
+            margin: 5px 25px 0px;
+        }
+		
+        aside{
+            width:680px;
+            height: 430px;
+            background-image: url(images/aside.jpg);
+            float: left;
+        }
+        
+		aside.index img{
+            display:none;
+        }	
+		aside.disaster{			
+			float: left;
+			text-align:center;
+			background-image:none;		
+        }
+		aside.register{			
+            width:600px;
+            height: 430px;
+			float: left;
+			text-align:center;
+			background-image:none;			
+			background-image:url(images/love.png);
+			padding-top:10px;
+			padding-left:80px;
+        }
+		aside.forum{			
+            width:600px;
+            height: 430px;
+			float: left;
+			text-align:center;
+			background-image:none;			
+			background-image:url(images/love.png);
+			padding-top:10px;
+			padding-left:80px;
+        }
+		aside.forum table{	
+			font-size: 17px;
+			font-family:Microsoft JhengHei; 
+			border:5px #c33 groove;
+        }
+		aside.forum table button{	
+			margin-left:50px;
+        }
+		aside.member{
+			padding-top:10px;
+			padding-left:80px;
+            width:600px;
+            height: 430px;
+			float: left;
+			text-align:center;
+			background-image:none;			
+			background-image:url(images/love.png);
+        }
+		aside.member table{	
+			font-size: 17px;
+			font-family:Microsoft JhengHei; 
+			border:5px #c33 groove;
+        }
+        /*span{
+			font-family:Microsoft JhengHei; 
+			font-size: 20px;
+            display: none;
+        }*/
+        article{
+            width:400px;
+            height:430px;
+            background-image: url(images/article.gif);
+            float: left;
+            font-size:13px;
+        }
+        article h1{
+            font-size:25px;
+            color:brown;
+			font-weight: bold;
+            text-align: center;
+            font-family:微軟正黑體;
+            text-align: center;
+            margin-top:40px;
+			margin-bottom:20px;
+        }
+        article h2{
+			font-family:Microsoft JhengHei; 
+			text-align: center;
+			font-size: 18px;
+            font-weight: normal;
+            text-align: center;
+            margin-top: 30px;
+        }
+		article.forum{
+            background-image: none;
+			font-family:Microsoft JhengHei; 
+        }
+		article.forum table td{
+            padding-left:8px;
+			padding-right:8px;
+        }
+		article.shop{
+            background-image: none;
+			height:auto;
+			font-family:Microsoft JhengHei; 
+			text-align: center;
+			font-size: 18px;
+        }
+        footer{
+            width:1080px;
+            height:20px;
+            /*background-image: url(images/footer.gif);*/
+            clear:both;
+            font-size:18px;
+            text-align: center;
+			font-family:Microsoft JhengHei; 
+        }
+		footer.long{
+            height:430px;
+        }
+		footer ul li.product{
+			float:left;
+			margin-left:15px;
+        }
+		
+    }
+
+/*        適用螢幕寬度小於480px的裝置（當螢幕小於480px時）*/
+    @media screen and (max-width:480px){
+		/* 按鈕 */ 
+		.bt{ 
+			font-family:Microsoft JhengHei; 
+			border: none; /* 去掉邊框 */ 
+			background: #c33; /* 改背景色 */ 
+			color: white; /* 字改成白色 */ 
+			font-size: 15px; /* 改字體大小 */ 
+			padding: 0px; /* 按鈕內邊距離 */		
+			width: 100px; /* 按鈕寬度 */ 
+			height: 50px; /* 按鈕高度 */ 
+			border-radius: 5px; /* 圓角5px */ 
+			margin-right: 10px;
+			margin-top: 10px;
+			text-align:center;
+		} 
+		
+		.bt span{ 
+			transition: 0.5s; /* 過渡0.5秒 */ 
+		} 
+
+		.bt:hover span{ 
+			padding-right: 10px; /* 當滑鼠在按鈕上時span內側離右邊距離15px */ 
+		} 
+		
+		.bt span:before{ 
+			content: "»"; /* span前面追加內容為» */ 
+			opacity: 0; /* 透明度為0 */ 
+			transition: 0.5s; /* 加個0.5秒的過渡 */ 
+		}
+		
+		.bt:hover span:before{ 
+			opacity: 1; /* 透明度為1，就是顯示 */ 
+		}
+		
+		.bt span:after{ 
+			content: "«"; /* span後面追加內容為» */ 
+			opacity: 0; /* 透明度為0 */ 
+			transition: 0.5s; /* 加個0.5秒的過渡 */ 
+		}
+		
+		.bt:hover span:after{ 
+			opacity: 1; /* 透明度為1，就是顯示 */ 
+		}
+		
+		.bt span a{ 
+			color:white;  /* 超連結顏色 */ 
+			text-decoration:none; /* 去除底線 */ 
+		} 
+		
+		.bt2{ 
+			font-family:Microsoft JhengHei; 
+			border: none; /* 去掉邊框 */ 
+			background: #930000; /* 改背景色 */ 
+			color: #FFD2D2; /* 字改成白色 */ 
+			font-size: 19px; /* 改字體大小 */ 
+			padding: 9.5px; /* 按鈕內邊距離 */ 
+			width: 70px; /* 按鈕寬度 */ 
+			border-radius: 180px; /* 圓角5px */ 
+			margin-right: 10px;
+		} 
+
+		.bt2:hover { 
+			font-size: 19px; /* 改字體大小 */ 
+			background: #4D0000; /* 改背景色 */ 
+		} 		
+
+		.bt2 span a{ 
+			color:#FFD2D2;  /* 超連結顏色 */ 
+			text-decoration:none; /* 去除底線 */ 
+		} 
+		
+		
+		div.gallery {
+		  display:none;
+		}
+		
+		#container {
+			display:none;
+		}
+		
+		
+		#menu{
+			display:none;
+		}
+		#cart{
+			display:none;
+		}
+		#MyBlog{
+			display:none;
+		}
+		
+		
+        div{
+            width:100%;
+            height:auto;
+            margin:auto;
+        }
+		
+        header{
+            width: 310px;
+            height: 260px;
+            background-image: url(images/logo.png);
+            
+        }
+		header img{            
+            display:none;
+        }
+        nav{
+            width: auto;
+			height: auto;
+            /*background-image: url(images/nav.gif);*/
+            float: none;
+        }
+        nav img{
+            margin: 5px 25px 0px;
+        }
+		/*
+        aside{
+            width:100%;
+            height: auto;
+            background-image: none;
+            float: none;
+        }
+        aside img{
+            display:block;
+            margin: auto;
+			display:none;
+        }*/
+		
+		aside{
+            width:100%;
+            height: auto;
+            background-image: url(images/aside.jpg);
+            float: none;
+        }		
+		
+		aside.index {
+            background-image:none;
+        }	
+		aside.index img{
+			display: block;
+			width:100%;
+        }	
+		aside.disaster img{			
+			width:310px;		
+        }
+		aside.register{			
+            width:100%;
+            height: auto;
+			float: none;
+			text-align:center;
+			background-image:none;				
+			padding-top:10px;
+			padding-left:0px;
+        }
+		aside.forum{			
+            width:100%;
+            height: auto;
+			float: none;
+			text-align:center;
+			background-image:none;			
+			padding-top:10px;
+			padding-left:0px;
+        }
+		aside.forum table{	
+			font-size: 17px;
+			font-family:Microsoft JhengHei; 
+			border:5px #c33 groove;
+        }
+		aside.forum table button{	
+			margin-left:50px;
+        }
+		aside.member{
+			padding-top:10px;
+			padding-left:0px;
+            width:100%;
+            height: auto;
+			float: none;
+			text-align:center;
+			background-image:none;			
+        }
+		aside.member table{	
+			font-size: 17px;
+			font-family:Microsoft JhengHei; 
+			border:5px #c33 groove;
+        }
+		
+		article{
+            width:88%;
+            height:auto;
+            background-image: none;
+            float: none;
+            font-size:13px;
+			margin: auto;
+        }
+        article h1{
+            font-size:25px;
+            color:brown;
+			font-weight: bold;
+            text-align: center;
+            font-family:微軟正黑體;
+            text-align: center;
+            margin-top:40px;
+			margin-bottom:20px;
+        }
+        article h2{
+			font-family:Microsoft JhengHei; 
+			text-align: center;
+			font-size: 18px;
+            font-weight: normal;
+            text-align: center;
+            margin-top: 30px;
+        }
+		article.forum{
+            background-image: none;
+			font-family:Microsoft JhengHei; 
+        }
+		article.forum table td{
+            padding-left:8px;
+			padding-right:8px;
+        }
+		article.shop{
+            background-image: none;
+			font-family:Microsoft JhengHei; 
+			text-align: center;
+			font-size: 18px;
+        }
+		
+        
+
+		footer{
+            width:100%;
+            height:auto;
+            clear:both;
+            font-size:18px;
+            text-align: center;
+			font-family:Microsoft JhengHei; 
+        }
+		footer.long{
+            height:auto;
+        }
+		footer.long div table tr td.email{
+            display:none;
+        }
+		footer.long div table tr th.email{
+            display:none;
+        }
+		footer ul li.product{
+			float:left;
+			margin-left:0px;
+        }
+		
+    }
