@@ -29,7 +29,7 @@ This is the page looks like in mobile phone with RWD.
 
 ![](https://github.com/a1233z/rwd_cookie_forum_website/blob/3667e267a06b63273b71d4633b499168a1a694b5/github_images/7.png)
 
-## Login page
+## Forum page
 ![](https://github.com/a1233z/rwd_cookie_forum_website/blob/3667e267a06b63273b71d4633b499168a1a694b5/github_images/1.png)
 
 ## Shopping page
