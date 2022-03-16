@@ -1,4 +1,4 @@
-# rwd_cookie_forum_website
+# RWD_php_shopping_forum
 這個防災購物網站, 我沒有套模板, 大部分的CSS都是自己寫的!! 
 
 ▲RWD>>		我有用media query, 把網站做成RWD響應式網頁, 讓手機使用者也可以放心的上下滑動. (first2.css)
