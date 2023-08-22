@@ -1,0 +1,47 @@
+# ./docker-compose.yml
+
+version: '3.8'
+services:
+  php-apache-environment:
+    container_name: php-apache
+    image: php:8.0-apache
+    build:
+        context: .
+        dockerfile: Dockerfile
+    depends_on:
+        - db
+    volumes:
+        - .:/var/www/html/
+    ports:
+        - 8000:80
+
+  db:
+    container_name: db
+    image: mysql
+    restart: always
+    environment:
+        MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
+        MYSQL_DATABASE: MYSQL_DATABASE
+        MYSQL_USER: MYSQL_USER
+        MYSQL_PASSWORD: MYSQL_PASSWORD
+    ports:
+        - "9906:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+        - '8080:80'
+    restart: always
+    environment:
+        PMA_HOST: db
+    depends_on:
+        - db
+#29、stdin_open
+#打开标准输入，可以接受外部输入
+#stdin_open: true
+
+#30、tty
+#模拟一个伪终端
+#tty: true
+
+#depends_on:- db : 規定容器的先後順序 以此為例，db先跑完，再跑web
